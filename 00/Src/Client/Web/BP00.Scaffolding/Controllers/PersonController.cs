@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Net;
 using System.Web.Mvc;
 using BP00.Scaffolding.Data;
 using BP00.Scaffolding.Domain;
@@ -43,8 +44,13 @@ namespace BP00.Scaffolding.Controllers
         // GET: Person/Details/5
         public ActionResult Details(int? id)
         {
-            var person = _dataContext.Persons.SingleOrDefault(o => o.Id == id);
-            var model = new PersonDetailsFormModel();
+            var person = _dataContext.Persons.FirstOrDefault(o => o.Id == id);
+             var model = new PersonDetailsFormModel();
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+           
 
             if (person != null)
             {
@@ -63,6 +69,10 @@ namespace BP00.Scaffolding.Controllers
                 person.City = model.City;
                 person.State = model.State;
                 person.Country = model.Country;
+            }
+            else
+            {
+                return HttpNotFound();
             }
 
             return View(model);
