@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Mvc;
 using BP00.Scaffolding.Data;
+using BP00.Scaffolding.Domain;
 using BP00.Scaffolding.ViewModels;
 
 namespace BP00.Scaffolding.Controllers
@@ -29,6 +30,7 @@ namespace BP00.Scaffolding.Controllers
                         Street = person.Street,
                         ZipCode = person.ZipCode,
                         City = person.City,
+                        State = person.State,
                         Country = person.Country
                     });
                 }  
@@ -37,28 +39,28 @@ namespace BP00.Scaffolding.Controllers
         }
 
         // GET: Person/Details/5
-        public ActionResult Details(int id)
+        public ActionResult Details(int? id)
         {
-            var person = _dataContext.Persons.FirstOrDefault(o => o.Id == id);
+            var person = _dataContext.Persons.SingleOrDefault(o => o.Id == id);
             var model = new PersonDetailsFormModel();
 
             if (person != null)
-            {  
-                
-                person.Gender = model.Gender;
-                person.FirstName = model.FirstName;
-                person.LastName = model.LastName;
-                person.DayOfBirth = model.DayOfBirth;
+            {
+                model.Id = person.Id;
+                model.Gender = person.Gender;
+                model.FirstName = person.FirstName;
+                model.LastName = person.LastName;
+                model.DayOfBirth = person.DayOfBirth;
                
 
-                person.Email = model.Email;
+                model.Email = person.Email;
 
-                person.Street = model.Street;
-                person.Option = model.Option;
-                person.ZipCode = model.ZipCode;
-                person.City = model.City;
-                person.State = model.State;
-                person.Country = model.Country;
+                model.Street = person.Street;
+                model.Option = person.Option;
+                model.ZipCode = person.ZipCode;
+                model.City = person.City;
+                model.State = person.State;
+                model.Country = person.Country;
             }
 
             return View(model);
