@@ -206,6 +206,10 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\PersonCreateFormModel.cs" />
+    <Compile Include="ViewModels\PersonDetailsFormModel.cs" />
+    <Compile Include="ViewModels\PersonEditFormModel.cs" />
+    <Compile Include="ViewModels\PersonHomeModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -341,7 +345,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Assets\" />
-    <Folder Include="ViewModels\" />
+    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
