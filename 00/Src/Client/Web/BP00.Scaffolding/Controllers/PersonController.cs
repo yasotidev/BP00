@@ -39,7 +39,29 @@ namespace BP00.Scaffolding.Controllers
         // GET: Person/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var person = _dataContext.Persons.FirstOrDefault(o => o.Id == id);
+            var model = new PersonDetailsFormModel();
+
+            if (person != null)
+            {  
+                
+                person.Gender = model.Gender;
+                person.FirstName = model.FirstName;
+                person.LastName = model.LastName;
+                person.DayOfBirth = model.DayOfBirth;
+               
+
+                person.Email = model.Email;
+
+                person.Street = model.Street;
+                person.Option = model.Option;
+                person.ZipCode = model.ZipCode;
+                person.City = model.City;
+                person.State = model.State;
+                person.Country = model.Country;
+            }
+
+            return View(model);
         }
 
         // GET: Person/Create
