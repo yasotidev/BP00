@@ -1,17 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
+using BP00.Scaffolding.Data;
+using BP00.Scaffolding.ViewModels;
 
 namespace BP00.Scaffolding.Controllers
 {
     public class PersonController : Controller
     {
+
+        private readonly DefaultContext _dataContext = new DefaultContext();
         // GET: Person
         public ActionResult Index()
         {
-            return View();
+
+            var persons = _dataContext.Persons.ToList();
+            var model = new List<PersonHomeModel>();
+
+            if (persons.Any())
+            {
+                foreach (var person in persons)
+                {
+                    model.Add(new PersonHomeModel()
+                    {
+                        FirstName = person.FirstName,
+                        LastName = person.LastName,
+                        Email = person.Email,
+                        Street = person.Street,
+                        ZipCode = person.ZipCode,
+                        City = person.City,
+                        Country = person.Country
+                    });
+                }  
+            }
+            return View(model);
         }
 
         // GET: Person/Details/5
