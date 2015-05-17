@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web.Mvc;
 using BP00.Scaffolding.Data;
@@ -114,6 +115,7 @@ namespace BP00.Scaffolding.Controllers
                     model.State = person.State;
                     model.Country = person.Country;
                 }
+                _dataContext.Entry(person).State = EntityState.Added;
                 _dataContext.Persons.Add(person);
                 person.Created = DateTime.UtcNow;
                 _dataContext.SaveChanges();
@@ -133,12 +135,47 @@ namespace BP00.Scaffolding.Controllers
 
         // POST: Person/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, PersonEditFormModel model)
         {
             try
             {
-                // TODO: Add update logic here
+                // TODO: Add insert logic here
+                var person = new Person();
+                if (model != null)
+                {
 
+                    model.Gender = person.Gender;
+                    model.FirstName = person.FirstName;
+                    model.LastName = person.LastName;
+                    model.DayOfBirth = person.DayOfBirth;
+
+
+                    model.Email = person.Email;
+
+                    model.Street = person.Street;
+                    model.Option = person.Option;
+                    model.ZipCode = person.ZipCode;
+                    model.City = person.City;
+                    model.State = person.State;
+                    model.Country = person.Country;
+                    model.Gender = person.Gender;
+                    model.FirstName = person.FirstName;
+                    model.LastName = person.LastName;
+                    model.DayOfBirth = person.DayOfBirth;
+
+
+                    model.Email = person.Email;
+
+                    model.Street = person.Street;
+                    model.Option = person.Option;
+                    model.ZipCode = person.ZipCode;
+                    model.City = person.City;
+                    model.State = person.State;
+                    model.Country = person.Country;
+                }
+                _dataContext.Entry(person).State = EntityState.Modified;
+                person.Updated = DateTime.UtcNow;
+                _dataContext.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
