@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using BP00.Scaffolding.Data;
@@ -46,21 +47,21 @@ namespace BP00.Scaffolding.Controllers
 
             if (person != null)
             {
-                model.Id = person.Id;
-                model.Gender = person.Gender;
-                model.FirstName = person.FirstName;
-                model.LastName = person.LastName;
-                model.DayOfBirth = person.DayOfBirth;
+                person.Id = model.Id;
+                person.Gender = model.Gender;
+                person.FirstName = model.FirstName;
+                person.LastName = model.LastName;
+                person.DayOfBirth = model.DayOfBirth;
                
 
-                model.Email = person.Email;
+                person.Email = model.Email;
 
-                model.Street = person.Street;
-                model.Option = person.Option;
-                model.ZipCode = person.ZipCode;
-                model.City = person.City;
-                model.State = person.State;
-                model.Country = person.Country;
+                person.Street = model.Street;
+                person.Option = model.Option;
+                person.ZipCode = model.ZipCode;
+                person.City = model.City;
+                person.State = model.State;
+                person.Country = model.Country;
             }
 
             return View(model);
@@ -69,17 +70,53 @@ namespace BP00.Scaffolding.Controllers
         // GET: Person/Create
         public ActionResult Create()
         {
+            
             return View();
         }
 
         // POST: Person/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(PersonEditFormModel model)
         {
             try
             {
                 // TODO: Add insert logic here
+                var person = new Person();
+                if (model != null)
+                {
+                    
+                    model.Gender = person.Gender;
+                    model.FirstName = person.FirstName;
+                    model.LastName = person.LastName;
+                    model.DayOfBirth = person.DayOfBirth;
 
+
+                    model.Email = person.Email;
+
+                    model.Street = person.Street;
+                    model.Option = person.Option;
+                    model.ZipCode = person.ZipCode;
+                    model.City = person.City;
+                    model.State = person.State;
+                    model.Country = person.Country;
+                    model.Gender = person.Gender;
+                    model.FirstName = person.FirstName;
+                    model.LastName = person.LastName;
+                    model.DayOfBirth = person.DayOfBirth;
+
+
+                    model.Email = person.Email;
+
+                    model.Street = person.Street;
+                    model.Option = person.Option;
+                    model.ZipCode = person.ZipCode;
+                    model.City = person.City;
+                    model.State = person.State;
+                    model.Country = person.Country;
+                }
+                _dataContext.Persons.Add(person);
+                person.Created = DateTime.UtcNow;
+                _dataContext.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
