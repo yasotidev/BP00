@@ -8,7 +8,7 @@ namespace BP00.Scaffolding.Data
     {
 
         public DefaultContext()
-            :base("name=BP-D")
+            :base("name=BP00-D")
         {
             
         }
