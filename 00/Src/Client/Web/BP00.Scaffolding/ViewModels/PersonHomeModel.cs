@@ -9,9 +9,7 @@ namespace BP00.Scaffolding.ViewModels
 {
     public class PersonHomeModel
     {
-        public string AvatarUrl { get; set; }
-
-
+        public string AvatarUrl { get; set; }  
       
         
         public string FirstName { get; set; }
