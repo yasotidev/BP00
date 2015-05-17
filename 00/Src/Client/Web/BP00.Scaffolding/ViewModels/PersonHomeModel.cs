@@ -5,6 +5,7 @@ namespace BP00.Scaffolding.ViewModels
 {
     public class PersonHomeModel
     {
+        public int Id { get; set; }
         public string AvatarUrl { get; set; }  
       
         

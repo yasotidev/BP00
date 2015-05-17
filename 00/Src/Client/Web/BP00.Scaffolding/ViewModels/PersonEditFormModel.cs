@@ -29,7 +29,7 @@ namespace BP00.Scaffolding.ViewModels
             get { return String.Format("{0}{1}.", FirstName, LastName.Substring(0, 1)); }
         }
 
-
+        
 
         public DateTime DayOfBirth { get; set; }
 
