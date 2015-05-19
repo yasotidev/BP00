@@ -7,6 +7,7 @@ namespace BP00.Scaffolding.ViewModels
     public class PersonViewModel
     {
         public int Id { get; set; }
+
         [DataType(DataType.ImageUrl)]
         public string AvatarUrl { get; set; }  
       
