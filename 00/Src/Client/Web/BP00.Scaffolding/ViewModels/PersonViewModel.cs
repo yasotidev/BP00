@@ -8,6 +8,8 @@ namespace BP00.Scaffolding.ViewModels
     {
         public int Id { get; set; }
 
+        [Display(Name = "Sex")]
+         public Gender Gender { get; set; }
         [DataType(DataType.ImageUrl)]
         public string AvatarUrl { get; set; }  
       
@@ -20,6 +22,11 @@ namespace BP00.Scaffolding.ViewModels
         [Display(Name = "Date de naissance")]
         public DateTime DayOfBirth { get; set; }
 
+       
+        [Display(Name = "N° téléphone")]
+        public string PhoneNumber { get; set; }
+
+   
 
         [Display(Name = "Nom et prénom")]
         public string FullName
@@ -33,7 +40,10 @@ namespace BP00.Scaffolding.ViewModels
         public string Email { get; set; }
 
         [Display(Name = "Rue")]
-        public string Street { get; set; }
+        public string Street { get; set; }      
+        
+        [Display(Name = "Complement")]
+        public string Option { get; set; }
 
         [Display(Name = "Code postal")]
         [DataType(DataType.PostalCode)]
@@ -59,8 +69,6 @@ namespace BP00.Scaffolding.ViewModels
         [Display(Name = "Pays")]
         public string Country { get; set; }
 
-        public Gender Gender { get; set; }
-        public string PhoneNumber { get; set; }
-        public string Option { get; set; }
+       
     }
 }
