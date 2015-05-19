@@ -3,10 +3,8 @@ using BP00.Scaffolding.Domain;
 
 namespace BP00.Scaffolding.ViewModels
 {
-    public class PersonDetailsFormModel
+    public class PersonFormModel
     {
-        public int Id { get; set; }
-
         public string AvatarUrl { get; set; }
 
 
@@ -31,7 +29,7 @@ namespace BP00.Scaffolding.ViewModels
             get { return String.Format("{0}{1}.", FirstName, LastName.Substring(0, 1)); }
         }
 
-
+        
 
         public DateTime DayOfBirth { get; set; }
 
@@ -56,5 +54,7 @@ namespace BP00.Scaffolding.ViewModels
 
 
         public string Country { get; set; }
+        public string PhoneNumber { get; set; }
+        public int Id { get; set; }
     }
 }

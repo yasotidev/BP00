@@ -209,14 +209,16 @@
     <Compile Include="Migrations\201505171036347_AddedInit.Designer.cs">
       <DependentUpon>201505171036347_AddedInit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201505190508351_AddedPersonFixed.cs" />
+    <Compile Include="Migrations\201505190508351_AddedPersonFixed.Designer.cs">
+      <DependentUpon>201505190508351_AddedPersonFixed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Seeders\DatabaseSeeders.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="ViewModels\PersonCreateFormModel.cs" />
-    <Compile Include="ViewModels\PersonDetailsFormModel.cs" />
-    <Compile Include="ViewModels\PersonEditFormModel.cs" />
-    <Compile Include="ViewModels\PersonHomeModel.cs" />
+    <Compile Include="ViewModels\PersonFormModel.cs" />
+    <Compile Include="ViewModels\PersonViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -363,6 +365,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201505171036347_AddedInit.resx">
       <DependentUpon>201505171036347_AddedInit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201505190508351_AddedPersonFixed.resx">
+      <DependentUpon>201505190508351_AddedPersonFixed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,18 +1,23 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using BP00.Scaffolding.Domain;
 
 namespace BP00.Scaffolding.ViewModels
 {
-    public class PersonHomeModel
+    public class PersonViewModel
     {
         public int Id { get; set; }
+        [DataType(DataType.ImageUrl)]
         public string AvatarUrl { get; set; }  
       
-        
+        [Display(Name = "Nom")]
         public string FirstName { get; set; }
 
-
+        [Display(Name = "Prénom")]
         public string LastName { get; set; }
+
+        [Display(Name = "Date de naissance")]
+        public DateTime DayOfBirth { get; set; }
 
 
         [Display(Name = "Nom et prénom")]
@@ -52,5 +57,9 @@ namespace BP00.Scaffolding.ViewModels
 
         [Display(Name = "Pays")]
         public string Country { get; set; }
+
+        public Gender Gender { get; set; }
+        public string PhoneNumber { get; set; }
+        public string Option { get; set; }
     }
 }
